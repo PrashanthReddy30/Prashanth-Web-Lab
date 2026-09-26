@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (target) {
                 if (targetId === '#about') {
-                    // Precise offset 70px from the top (V70)
+                    // Precise offset: we want the CONTENT at V70.
+                    // Section has 3rem (48px) top padding. So we offset by 22px (70 - 48 = 22).
                     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({
-                        top: targetPosition - 70,
+                        top: targetPosition - 22,
                         behavior: 'smooth'
                     });
                 } else {
