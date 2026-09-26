@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS Portal Preview</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 2rem;
+            background-color: #070913;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .slide-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 75, 75, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .slide-section h2 {
+            margin-top: 0;
+            color: #fff;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .glow-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #ef4444;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .glow-btn:hover {
+            background: rgba(239, 68, 68, 0.1);
+            box-shadow: 0 0 20px #ef4444;
+            transform: translateY(-2px);
+        }
+
+        .dashboard-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #111, #1a1a1a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>HRMS Portal</h1>
+        <p>Advanced Enterprise Human Resource Management System built for modern businesses. Streamlining payroll, attendance, and employee records.</p>
+
+        <div class="slide-section">
+            <h2>1. Administrator Dashboard</h2>
+            <p>Full overview of company statistics, active employees, and pending leave requests.</p>
+            <div class="dashboard-img-placeholder">
+                [Dashboard Graphic Placeholder]
+            </div>
+            <div class="button-group">
+                <button class="glow-btn" onclick="alert('Dummy Click: Employee List Opened!')">View Employees</button>
+                <button class="glow-btn" onclick="alert('Dummy Click: Payroll Generated!')">Run Payroll</button>
+                <button class="glow-btn" onclick="alert('Dummy Click: Analytics Loaded!')">System Analytics</button>
+            </div>
+        </div>
+
+        <div class="slide-section">
+            <h2>2. Employee Self-Service</h2>
+            <p>Employees can log in securely to view payslips, request time off, and update personal information.</p>
+            <div class="button-group">
+                <button class="glow-btn" onclick="alert('Dummy Click: Leave Requested!')">Request Leave</button>
+                <button class="glow-btn" onclick="alert('Dummy Click: Payslip Downloaded!')">Download Payslip</button>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
