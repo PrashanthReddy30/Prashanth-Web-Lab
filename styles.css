@@ -455,7 +455,7 @@ a {
 /* Stats Section */
 .stats-section {
     padding: 0 5%;
-    margin-top: 1rem;
+    margin-top: -5.25rem; /* Moved up ~100px */
     position: relative;
     z-index: 100;
 }
