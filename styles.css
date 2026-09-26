@@ -532,7 +532,7 @@ a {
     font-size: 1.15rem;
     color: #e2e8f0;
     max-width: 800px;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem; /* Increased to push down to exactly V260 */
     line-height: 1.6;
 }
 
