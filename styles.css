@@ -752,7 +752,7 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 1.1rem; /* Adjusted to pull the grid up exactly to V220 */
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
