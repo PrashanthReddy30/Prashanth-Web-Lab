@@ -544,7 +544,7 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-top: 1rem; /* Pulls the grid up to start precisely at V350 */
+    margin-top: 2.25rem; /* Pushes the grid down by 20px to start exactly at V350 */
 }
 
 .about-card {
