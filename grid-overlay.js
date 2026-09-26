@@ -29,38 +29,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate horizontal ruler (top edge)
     const windowWidth = window.innerWidth;
-    for (let x = GRID_SIZE; x < windowWidth; x += GRID_SIZE) {
-        const marker = document.createElement('div');
-        marker.innerText = 'H' + x;
-        Object.assign(marker.style, {
-            position: 'absolute',
-            left: `${x}px`,
-            top: '2px',
-            color: '#00ffcc',
-            fontSize: '12px',
-            fontFamily: 'monospace',
-            transform: 'translateX(-50%)',
-            textShadow: '1px 1px 2px #000'
-        });
-        gridOverlay.appendChild(marker);
+    for (let x = 10; x < windowWidth; x += 10) {
+        if (x % 100 === 0) {
+            const marker = document.createElement('div');
+            marker.innerText = 'H' + x;
+            Object.assign(marker.style, {
+                position: 'absolute',
+                left: `${x}px`,
+                top: '12px',
+                color: '#00ffcc',
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                transform: 'translateX(-50%)',
+                textShadow: '1px 1px 2px #000'
+            });
+            gridOverlay.appendChild(marker);
+            
+            // Major tick
+            const tick = document.createElement('div');
+            Object.assign(tick.style, {
+                position: 'absolute', left: `${x}px`, top: '0', width: '1px', height: '15px', backgroundColor: '#00ffcc'
+            });
+            gridOverlay.appendChild(tick);
+        } else {
+            // Minor tick
+            const tick = document.createElement('div');
+            Object.assign(tick.style, {
+                position: 'absolute', left: `${x}px`, top: '0', width: '1px', 
+                height: x % 50 === 0 ? '10px' : '5px', 
+                backgroundColor: 'rgba(0, 255, 204, 0.5)'
+            });
+            gridOverlay.appendChild(tick);
+        }
     }
 
     // Generate vertical ruler (left edge)
     const windowHeight = window.innerHeight;
-    for (let y = GRID_SIZE; y < windowHeight; y += GRID_SIZE) {
-        const marker = document.createElement('div');
-        marker.innerText = 'V' + y;
-        Object.assign(marker.style, {
-            position: 'absolute',
-            top: `${y}px`,
-            left: '4px',
-            color: '#00ffcc',
-            fontSize: '12px',
-            fontFamily: 'monospace',
-            transform: 'translateY(-50%)',
-            textShadow: '1px 1px 2px #000'
-        });
-        gridOverlay.appendChild(marker);
+    for (let y = 10; y < windowHeight; y += 10) {
+        if (y % 100 === 0) {
+            const marker = document.createElement('div');
+            marker.innerText = 'V' + y;
+            Object.assign(marker.style, {
+                position: 'absolute',
+                top: `${y}px`,
+                left: '14px',
+                color: '#00ffcc',
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                transform: 'translateY(-50%)',
+                textShadow: '1px 1px 2px #000'
+            });
+            gridOverlay.appendChild(marker);
+            
+            // Major tick
+            const tick = document.createElement('div');
+            Object.assign(tick.style, {
+                position: 'absolute', top: `${y}px`, left: '0', width: '15px', height: '1px', backgroundColor: '#00ffcc'
+            });
+            gridOverlay.appendChild(tick);
+        } else {
+            // Minor tick
+            const tick = document.createElement('div');
+            Object.assign(tick.style, {
+                position: 'absolute', top: `${y}px`, left: '0', height: '1px', 
+                width: y % 50 === 0 ? '10px' : '5px', 
+                backgroundColor: 'rgba(0, 255, 204, 0.5)'
+            });
+            gridOverlay.appendChild(tick);
+        }
     }
 
     document.body.appendChild(gridOverlay);
