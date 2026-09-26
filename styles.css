@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: 50px;
     scroll-behavior: smooth;
 }
 
@@ -40,7 +40,7 @@ body {
 }
 
 section {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 50px;
 }
 
 /* Base Tech Grid Background Removed */
@@ -511,7 +511,7 @@ a {
 
 /* About Section */
 .about {
-    padding: 6rem 6% 2rem 6%;
+    padding: 3rem 6% 2rem 6%;
 }
 
 .red-badge {
