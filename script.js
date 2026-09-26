@@ -4,11 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]:not(.resume-btn)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (targetId === '#about') {
+                    // Precise offset 70px from the top (V70)
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                        top: targetPosition - 70,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
                 
                 // Update active state
                 document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
