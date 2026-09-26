@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(targetId);
             
             if (target) {
-                if (targetId === '#about') {
-                    // Precise offset: we want the CONTENT at V70.
-                    // Section has 3rem (48px) top padding. So we offset by 22px (70 - 48 = 22).
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-                    window.scrollTo({
-                        top: targetPosition - 22,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                // Get the computed padding-top of the target section
+                const targetStyle = window.getComputedStyle(target);
+                const paddingTop = parseFloat(targetStyle.paddingTop) || 0;
+                
+                // We want the CONTENT of the section (after padding) to sit exactly at V70.
+                // V70 is 70px from the top of the viewport.
+                // So we offset the top of the section by (70 - paddingTop).
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+                
+                window.scrollTo({
+                    top: targetPosition - (70 - paddingTop),
+                    behavior: 'smooth'
+                });
                 
                 // Update active state
                 document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
