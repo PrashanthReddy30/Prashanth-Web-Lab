@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const windowWidth = window.innerWidth;
     for (let x = GRID_SIZE; x < windowWidth; x += GRID_SIZE) {
         const marker = document.createElement('div');
-        marker.innerText = x;
+        marker.innerText = 'H' + x;
         Object.assign(marker.style, {
             position: 'absolute',
             left: `${x}px`,
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const windowHeight = window.innerHeight;
     for (let y = GRID_SIZE; y < windowHeight; y += GRID_SIZE) {
         const marker = document.createElement('div');
-        marker.innerText = y;
+        marker.innerText = 'V' + y;
         Object.assign(marker.style, {
             position: 'absolute',
             top: `${y}px`,
