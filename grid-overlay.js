@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         height: '100vh',
         pointerEvents: 'none',
         zIndex: '9999',
-        opacity: '0.3',
+        opacity: '0.1',
         backgroundSize: `${GRID_SIZE}px ${GRID_SIZE}px`,
         backgroundImage: `
             linear-gradient(to right, #00ffcc 1px, transparent 1px),
