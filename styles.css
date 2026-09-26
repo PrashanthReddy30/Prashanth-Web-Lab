@@ -231,7 +231,7 @@ a {
 /* Hero Section */
 .hero {
     position: relative;
-    padding: 5rem 6% 0 6%;
+    padding: 3.5rem 6% 0 6%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -270,11 +270,11 @@ a {
 }
 
 .hero-title {
-    font-size: 5rem;
+    font-size: 3.8rem;
     font-weight: 800;
     line-height: 1;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1.5px;
+    margin-bottom: 0.2rem;
+    letter-spacing: -1px;
 }
 
 .title-main {
@@ -285,7 +285,7 @@ a {
 }
 
 .title-sub {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: #e2e8f0;
 }
 
@@ -307,21 +307,21 @@ a {
 
 .hero-desc {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
 }
 
 .hero-actions {
     display: flex;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .features-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem 2rem;
+    gap: 0.5rem 1.5rem;
 }
 
 .feature-item {
