@@ -355,36 +355,58 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: flex-start;
     padding-top: 70px;
+    padding-left: 5%;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(circle at 75% 50%, rgba(112, 0, 255, 0.08), transparent 60%);
 }
 
 .hero-content {
-    max-width: 800px;
-    padding: 0 5%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 1.5rem;
     position: relative;
     z-index: 10;
 }
 
-.hero-image {
+.hero-image-parallax {
     position: absolute;
     bottom: 0;
     right: 5%;
-    height: 85vh;
-    max-height: 800px;
-    object-fit: contain;
     z-index: 1;
-    mask-image: linear-gradient(to top, transparent 0%, black 25%);
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 25%);
-    filter: drop-shadow(-10px 0 25px rgba(0, 245, 212, 0.2));
+    transition: transform 0.1s ease-out;
+}
+
+.hero-image {
+    height: 90vh;
+    max-height: 850px;
+    object-fit: contain;
+    mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+    filter: drop-shadow(-15px 0 35px rgba(112, 0, 255, 0.3)) drop-shadow(15px 0 35px rgba(0, 245, 212, 0.2));
+    animation: natural-float 8s ease-in-out infinite;
+    transition: transform 0.5s ease-out, filter 0.5s ease-out;
+    transform-origin: bottom center;
+}
+
+.hero-image:hover {
+    transform: scale(1.02) translateY(-10px);
+    filter: drop-shadow(-15px 0 45px rgba(112, 0, 255, 0.5)) drop-shadow(15px 0 45px rgba(0, 245, 212, 0.4)) brightness(1.05);
+}
+
+@keyframes natural-float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(0.5deg);
+    }
 }
 
 .badge {

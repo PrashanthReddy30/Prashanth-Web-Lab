@@ -150,11 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();
     initNavigation();
     initScrollAnimations();
+    initHeroParallax();
     
     // Set copyright year
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 });
+
+function initHeroParallax() {
+    const heroImageParallax = document.querySelector('.hero-image-parallax');
+    if (!heroImageParallax) return;
+
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth - e.pageX * 2) / 90;
+        const y = (window.innerHeight - e.pageY * 2) / 90;
+        
+        // Apply parallax via the wrapper so it doesn't conflict with CSS animation on the image itself
+        heroImageParallax.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+}
 
 // --- Render Functions --- //
 function renderSkills() {
