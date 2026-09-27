@@ -393,6 +393,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- About Section --- */
+.about-visual {
+    mix-blend-mode: screen;
+}
+
 .glass-frame {
     position: relative;
     padding: 0;
@@ -406,7 +410,6 @@ h1, h2, h3, h4, h5, h6 {
 .profile-img {
     width: 100%;
     display: block;
-    mix-blend-mode: screen; /* This makes the black background of the JPEG transparent! */
     filter: brightness(1.1) contrast(1.1);
     position: relative;
     z-index: 1;
