@@ -418,8 +418,8 @@ function initNavigation() {
                 const targetStyle = window.getComputedStyle(target);
                 const paddingTop = parseFloat(targetStyle.paddingTop) || 0;
                 
-                // Offset calculation (Nav height is roughly 80px)
-                const offset = 80;
+                // Offset calculation to snap target exactly to V70 (70px from top)
+                const offset = 70;
                 const targetPosition = target.getBoundingClientRect().top + window.scrollY;
                 
                 window.scrollTo({

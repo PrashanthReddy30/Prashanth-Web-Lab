@@ -79,9 +79,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-    padding: 8rem 0;
+    padding: 2rem 0;
     position: relative;
     z-index: 1;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .text-center {
@@ -454,13 +458,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Services Grid --- */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
     gap: 2rem;
     margin-top: 3rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 2rem; /* space for scrollbar */
 }
-
+.services-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.services-grid::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+}
+.services-grid::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 4px;
+}
 .service-card {
+    flex: 0 0 calc(33.333% - 1.33rem); /* Show 3 cards per view */
+    scroll-snap-align: start;
     padding: 2rem;
     transition: var(--transition);
 }
@@ -562,16 +581,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
     gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 2rem;
+}
+.projects-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.projects-grid::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+}
+.projects-grid::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 4px;
 }
 
 .project-card {
+    flex: 0 0 calc(33.333% - 1.33rem); /* Show 3 per view */
+    scroll-snap-align: start;
     padding: 1rem;
     cursor: pointer;
     transition: var(--transition);
     overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .service-card, .project-card {
+        flex: 0 0 calc(50% - 1rem); /* 2 per view on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .service-card, .project-card {
+        flex: 0 0 100%; /* 1 per view on mobile */
+    }
 }
 
 .project-img-wrapper {
