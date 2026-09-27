@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollAnimations();
     initHeroParallax();
+    initWhatIDo3D();
     
     // Set copyright year
     const yearSpan = document.getElementById('year');
@@ -167,6 +168,123 @@ function initHeroParallax() {
         
         // Apply parallax via the wrapper so it doesn't conflict with CSS animation on the image itself
         heroImageParallax.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+}
+
+function initWhatIDo3D() {
+    // 1. Card 3D Interaction
+    const cards = document.querySelectorAll('.what-i-do-card');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isMobile && !prefersReducedMotion) {
+        cards.forEach(card => {
+            const glare = card.querySelector('.card-glare');
+            const content = card.querySelector('.card-content');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate rotation (max 10 degrees)
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                
+                // Update glare position
+                if (glare) {
+                    const percentX = (x / rect.width) * 100;
+                    const percentY = (y / rect.height) * 100;
+                    glare.style.background = `radial-gradient(circle at ${percentX}% ${percentY}%, rgba(255,255,255,0.1), transparent 60%)`;
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                if (glare) {
+                    glare.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%)`;
+                }
+            });
+        });
+    }
+
+    // 2. WebGL Background (Particles & Geometric Object)
+    const canvas = document.getElementById('whatido-canvas');
+    if (!canvas || typeof THREE === 'undefined' || isMobile || prefersReducedMotion) return;
+
+    const scene = new THREE.Scene();
+    
+    // Parent container determines dimensions
+    const container = document.querySelector('.what-i-do');
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.z = 30;
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+    });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 100;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 100;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.15,
+        color: 0x4361ee,
+        transparent: true,
+        opacity: 0.4
+    });
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    // Floating Geometric Object
+    const geo = new THREE.IcosahedronGeometry(12, 1);
+    const mat = new THREE.MeshBasicMaterial({
+        color: 0x00f5d4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.05
+    });
+    const object = new THREE.Mesh(geo, mat);
+    object.position.set(0, 0, -10);
+    scene.add(object);
+
+    // Animation loop
+    let reqId;
+    const animate = () => {
+        reqId = requestAnimationFrame(animate);
+        particlesMesh.rotation.y += 0.0005;
+        particlesMesh.rotation.x += 0.0002;
+        object.rotation.y -= 0.001;
+        object.rotation.x -= 0.0005;
+        renderer.render(scene, camera);
+    };
+    animate();
+
+    // Resize handling
+    window.addEventListener('resize', () => {
+        if (!container) return;
+        const newWidth = container.offsetWidth;
+        const newHeight = container.offsetHeight;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
     });
 }
 
