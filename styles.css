@@ -50,7 +50,7 @@ body.dark-theme {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: -1;
     pointer-events: none;
@@ -61,7 +61,7 @@ body.dark-theme {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     pointer-events: none;
     z-index: -1;
@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-    padding: 2rem 0;
+    padding: 4rem 0;
     position: relative;
     z-index: 1;
     min-height: calc(100vh - 70px);
@@ -1241,7 +1241,7 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
     }
     .section-padding {
-        padding: 5rem 0;
+        padding: 2rem 0;
     }
     .hero-actions {
         flex-direction: column;
