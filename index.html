@@ -3,421 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashanth Web Lab - Professional Web Design</title>
-    <meta name="description" content="Portfolio of Prashanth, an AI-Assisted Web Designer creating modern, responsive websites.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Prashanth Web Lab - Premium 3D Portfolio</title>
+    <meta name="description" content="Portfolio of Prashanth, building futuristic, high-end, responsive digital experiences.">
+    
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
-<body>
-    <header class="header">
+<body class="dark-theme">
+    
+    <!-- 3D Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation -->
+    <header class="header glass-nav">
         <div class="logo">
-            <div class="logo-icon">P</div>
+            <div class="logo-icon glow-pulse">P</div>
             <div class="logo-text">
                 <span class="brand-name">Prashanth</span>
                 <span class="brand-sub">Web Lab</span>
             </div>
         </div>
-        <nav class="nav">
+        
+        <!-- Hamburger Menu -->
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="nav" id="main-nav">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#services">Services</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#resume" class="resume-btn">Resume</a>
+            <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
         </nav>
+        
+        <!-- The original CV download link triggers the resume modal -->
         <a href="#resume-modal" class="btn-nav-download resume-btn"><i class="fas fa-download"></i> Download CV</a>
     </header>
 
     <main>
+        <!-- 1. Hero Section -->
         <section class="hero" id="home">
-            <div class="hero-bg-glow"></div>
-            
-            <div class="hero-content">
-                <div class="badge">👋 Hello, I'm</div>
+            <div class="hero-content fade-in-scroll">
+                <div class="badge glow-border">AI • WEB • DESIGN • DIGITAL EXPERIENCES</div>
                 <h1 class="hero-title">
-                    <span class="title-main">Prashanth</span>
-                    <br>
-                    <span class="title-sub">AI-Assisted <span class="gradient-purple">Web</span><br><span class="gradient-blue">Designer</span></span>
+                    <span class="title-main text-gradient">Building Digital Experiences</span><br>
+                    <span class="title-sub">That Make Ideas Real.</span>
                 </h1>
                 <p class="hero-desc">
-                    I create modern, responsive and professional websites using<br>AI-powered design and development workflows.
+                    I am M. Prashanth Reddy, creating modern, professional digital experiences and websites.
                 </p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View My Projects <i class="fas fa-arrow-right"></i></a>
-                    <a href="#resume-modal" class="btn btn-outline resume-btn"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="#projects" class="btn btn-primary btn-glow">VIEW MY WORK <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">CONTACT ME</a>
                 </div>
                 
-                <div class="features-list">
-                    <div class="feature-item">
-                        <i class="fas fa-sparkles icon-gradient"></i>
-                        <span>AI Powered<br>Workflow</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt icon-gradient"></i>
-                        <span>Modern<br>UI/UX Design</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-mobile-alt icon-gradient"></i>
-                        <span>Responsive<br>Websites</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-code icon-gradient"></i>
-                        <span>Clean &<br>Optimized Code</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="main-image-wrapper">
-                    <!-- Local image provided by user -->
-                    <img src="public/prasahnth.jpeg" alt="Prashanth - AI Web Designer" class="hero-main-img">
+                <div class="trust-labels">
+                    <span><i class="fas fa-check-circle"></i> Web Development</span>
+                    <span><i class="fas fa-check-circle"></i> AI-Assisted Development</span>
+                    <span><i class="fas fa-check-circle"></i> UI/UX</span>
+                    <span><i class="fas fa-check-circle"></i> VFX / Creative Technology</span>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="stats-container glass-card">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="far fa-folder"></i></div>
-                    <div class="stat-text">
-                        <h3>5+</h3>
-                        <p>Projects Completed</p>
+        <!-- 2. About Section -->
+        <section class="about section-padding" id="about">
+            <div class="container split-layout">
+                <div class="about-visual fade-in-scroll" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <!-- Premium 3D Frame around existing photo -->
+                    <div class="glass-frame">
+                        <img src="public/prasahnth.jpeg" alt="M. Prashanth Reddy" class="profile-img">
+                        <div class="frame-glow"></div>
                     </div>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="far fa-smile"></i></div>
-                    <div class="stat-text">
-                        <h3>100%</h3>
-                        <p>Client Satisfaction</p>
-                    </div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="far fa-clock"></i></div>
-                    <div class="stat-text">
-                        <h3>AI</h3>
-                        <p>Powered Workflow</p>
-                    </div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="stat-text">
-                        <h3>Fast</h3>
-                        <p>& Responsive Design</p>
+                
+                <div class="about-text fade-in-scroll">
+                    <span class="section-badge">About Me</span>
+                    <h2 class="section-title">Crafting Digital Experiences with <span class="text-gradient">Precision</span></h2>
+                    <p class="about-bio">
+                        I am <strong>M. Prashanth Reddy</strong>, an AI-Assisted Web Designer focused on building futuristic, high-end, responsive dark-themed websites with clean UI/UX and fluid animations.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-robot icon-glow"></i>
+                            <div>
+                                <h4>AI-Powered Workflows</h4>
+                                <p>Leveraging modern tools for fast & smart prototyping to accelerate the design process.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-paint-brush icon-glow"></i>
+                            <div>
+                                <h4>Modern UI/UX Design</h4>
+                                <p>Deep dark themes, custom gradients, and seamless visual integration for stunning aesthetics.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-code icon-glow"></i>
+                            <div>
+                                <h4>Clean & Optimized Code</h4>
+                                <p>Responsive layouts using flexbox, grid, and smooth performance for all devices.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-header">
-            <div class="section-title-wrap">
-                <span class="section-badge">About Me</span>
-                <h2>Crafting Digital Experiences<br>with <span class="gradient-red">AI & Precision</span></h2>
-                <p class="about-bio">I am <strong>M. Prashanth Reddy</strong>, an AI-Assisted Web Designer focused on building futuristic, high-end, responsive dark-themed websites with clean UI/UX and fluid animations.</p>
-            </div>
-        </div>
-        
-        <div class="about-grid">
-            <div class="about-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI-Powered Workflows</h3>
-                <p>Leveraging modern tools for fast & smart prototyping to accelerate the design process.</p>
-            </div>
-            <div class="about-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-paint-brush"></i></div>
-                <h3>Modern UI/UX Design</h3>
-                <p>Deep dark themes, custom gradients, and seamless visual integration for stunning aesthetics.</p>
-            </div>
-            <div class="about-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-code"></i></div>
-                <h3>Clean & Optimized Code</h3>
-                <p>Responsive layouts using flexbox, grid, and smooth performance for all devices.</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="workflow-banner glass-card fade-in-scroll">
-            <div class="workflow-content">
-                <div class="section-badge" style="margin-bottom: 1rem;">Services</div>
-                <h3>10 Days vs 2 Months</h3>
-                <p>While conventional human web development typically takes 1 to 2 months, my advanced AI-assisted workflow delivers a fully completed, high-end website in just <strong>10 days</strong> with zero errors and immaculate precision.</p>
-            </div>
-            <div class="workflow-stats">
-                <div class="stat-circle">
-                    <span class="stat-num" id="days-counter">10</span>
-                    <span class="stat-label">Days<br>Delivery</span>
+        <!-- 3. Services Section -->
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <div class="section-header text-center fade-in-scroll">
+                    <span class="section-badge">What I Do</span>
+                    <h2 class="section-title">Professional <span class="text-gradient">Services</span></h2>
                 </div>
-                <div class="stat-circle">
-                    <span class="stat-num" id="errors-counter">0</span>
-                    <span class="stat-label">Errors</span>
+                
+                <div class="services-grid">
+                    <!-- Cards will be populated by JS or hardcoded here -->
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Business Websites</h3>
+                        <p>Corporate identity and online presence for modern businesses.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-id-badge"></i>
+                        <h3>Portfolio Websites</h3>
+                        <p>High-end personal branding and showcase platforms.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>E-Commerce Websites</h3>
+                        <p>Secure, scalable, and conversion-optimized online stores.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered Websites</h3>
+                        <p>Intelligent digital experiences driven by modern AI workflows.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Intuitive, accessible, and premium user interfaces.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsive Web Dev</h3>
+                        <p>Fluid layouts that perform flawlessly on all devices.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-rocket"></i>
+                        <h3>Website Deployment</h3>
+                        <p>Secure hosting, domain setup, and performance optimization.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Website Maintenance</h3>
+                        <p>Continuous updates, security, and technical support.</p>
+                    </div>
+                    <div class="service-card glass-card fade-in-scroll" data-tilt>
+                        <i class="fas fa-magic"></i>
+                        <h3>VFX / Creative Tech</h3>
+                        <p>Advanced visual effects and immersive digital interactions.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="services-grid" style="margin-top: 4rem;">
-            <div class="service-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Full-Stack Web Development</h3>
-                <p>Building robust applications covering both frontend UI and backend integration.</p>
+        <!-- 4. Skills Section -->
+        <section class="skills section-padding" id="skills">
+            <div class="container">
+                <div class="section-header text-center fade-in-scroll">
+                    <span class="section-badge">Technical Arsenal</span>
+                    <h2 class="section-title">My <span class="text-gradient">Skills</span></h2>
+                </div>
+                
+                <div class="skills-grid" id="skills-container">
+                    <!-- Interactive 3D cards populated by JS -->
+                </div>
             </div>
-            <div class="service-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-server"></i></div>
-                <h3>Reliable Web Hosting</h3>
-                <p>Setting up secure, high-performance hosting environments for seamless online presence.</p>
-            </div>
-            <div class="service-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-sync-alt"></i></div>
-                <h3>Automatic Updates</h3>
-                <p>Ensuring continuous background maintenance, security patches, and effortless system updates.</p>
-            </div>
-            <div class="service-card glass-card fade-in-scroll">
-                <div class="about-icon"><i class="fas fa-search-dollar"></i></div>
-                <h3>SEO & Optimization</h3>
-                <p>Optimizing websites for search engine rankings, rapid loading speeds, and high user reach.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="section-header">
-            <div class="section-title-wrap">
-                <span class="section-badge">Technical Arsenal</span>
-                <h2>My Skills & <span class="gradient-red">Expertise</span></h2>
-            </div>
-        </div>
-        
-        <div class="skills-grid">
-            <div class="skill-card fade-in-scroll" data-skill="html">
-                <i class="fab fa-html5 skill-icon html-color"></i>
-                <span>HTML</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="css">
-                <i class="fab fa-css3-alt skill-icon css-color"></i>
-                <span>CSS</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="js">
-                <i class="fab fa-js skill-icon js-color"></i>
-                <span>JavaScript</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="node">
-                <i class="fab fa-node-js skill-icon node-color"></i>
-                <span>Node.js</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="firebase">
-                <i class="fas fa-fire skill-icon firebase-color"></i>
-                <span>Firebase</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="git">
-                <i class="fab fa-git-alt skill-icon git-color"></i>
-                <span>Git</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="netlify">
-                <i class="fas fa-cloud skill-icon netlify-color"></i>
-                <span>Netlify</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="uiux">
-                <i class="fas fa-pen-nib skill-icon ui-color"></i>
-                <span>UI/UX Design</span>
-            </div>
-            <div class="skill-card fade-in-scroll" data-skill="responsive">
-                <i class="fas fa-desktop skill-icon responsive-color"></i>
-                <span>Responsive Layouts</span>
-            </div>
-        </div>
-    </section>
-    <!-- Projects Section -->
-        <section class="projects" id="projects">
-            <div class="section-header">
-                <div class="section-title-wrap">
+        <!-- 5. Projects Section -->
+        <section class="projects section-padding" id="projects">
+            <div class="container">
+                <div class="section-header text-center fade-in-scroll">
                     <span class="section-badge">My Work</span>
-                    <h2>Featured <span class="gradient-red">Projects</span></h2>
-                    <p>Here are some of my recent web design projects. Each project is built with modern<br>technologies and a focus on clean UI/UX, performance and user experience.</p>
+                    <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+                    <p class="section-desc">Here are some of my recent web design projects. Each project is built with modern technologies and a focus on clean UI/UX.</p>
                 </div>
-                <a href="#" class="view-all">View All Projects <i class="fas fa-arrow-right"></i></a>
+                
+                <!-- Category Filters -->
+                <div class="project-filters fade-in-scroll" id="project-filters">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="websites">WEBSITES</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-COMMERCE</button>
+                    <button class="filter-btn" data-filter="business">BUSINESS</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="uiux">UI/UX</button>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-container">
+                    <!-- Populated by JS -->
+                </div>
             </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hospital Website">
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <h4>Hospital Website</h4>
-                            <p>Healthcare & Medical</p>
+        </section>
+
+        <!-- 6. Experience & Process Section -->
+        <section class="experience section-padding" id="experience">
+            <div class="container split-layout">
+                <!-- Timeline / Experience -->
+                <div class="timeline-container fade-in-scroll">
+                    <span class="section-badge">Journey</span>
+                    <h2 class="section-title">My <span class="text-gradient">Experience</span></h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>AI-Assisted Web Designer</h3>
+                                <h4>Prashanth Web Lab</h4>
+                                <span class="timeline-date">Present</span>
+                                <p>Building futuristic, high-end responsive websites with modern UI/UX and full-stack integration.</p>
+                            </div>
                         </div>
-                        <a href="https://prashanth-hospital.netlify.app/" class="btn btn-sm btn-primary-glass preview-btn">Live Preview</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HRMS Portal">
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <h4>HRMS Portal</h4>
-                            <p>Enterprise Solution</p>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Full-Stack Developer</h3>
+                                <h4>Freelance</h4>
+                                <span class="timeline-date">Previous</span>
+                                <p>Developed diverse client projects including e-commerce, hospital portals, and corporate business sites.</p>
+                            </div>
                         </div>
-                        <a href="public/HRMS_Portal_Professional_12_Slides.pdf#page=1&view=FitH&toolbar=0&navpanes=0" class="btn btn-sm btn-primary-glass preview-btn">Live Preview</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-Commerce Website">
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <h4>E-Commerce Website</h4>
-                            <p>Shopping & Retail</p>
+                        <div class="timeline-item glass-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Professional Certificate in AI</h3>
+                                <h4>Education</h4>
+                                <span class="timeline-date">Completed</span>
+                                <p>Specialized training focusing on modern AI tools, machine learning concepts, and practical applications.</p>
+                            </div>
                         </div>
-                        <a href="public/E_Commerce_Website_Professional_12_Slides.pdf#page=1&view=FitH&toolbar=0&navpanes=0" class="btn btn-sm btn-primary-glass preview-btn">Live Preview</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Website">
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <h4>Business Website</h4>
-                            <p>Corporate & Business</p>
-                        </div>
-                        <a href="public/Corporate_Business_Website_Professional_12_Slides.pdf#page=1&view=FitH&toolbar=0&navpanes=0" class="btn btn-sm btn-primary-glass preview-btn">Live Preview</a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Car Rentals">
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <h4>Car Rentals</h4>
-                            <p>Automotive & Transport</p>
+                <!-- Work Process -->
+                <div class="process-container fade-in-scroll">
+                    <span class="section-badge">Methodology</span>
+                    <h2 class="section-title">Work <span class="text-gradient">Process</span></h2>
+                    
+                    <div class="process-grid">
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">01</span>
+                            <h3>DISCOVER</h3>
+                            <p>Understand the requirement.</p>
                         </div>
-                        <a href="https://slcarrentals.in/" class="btn btn-sm btn-primary-glass preview-btn">Live Preview</a>
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">02</span>
+                            <h3>PLAN</h3>
+                            <p>Define structure and UX.</p>
+                        </div>
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">03</span>
+                            <h3>DESIGN</h3>
+                            <p>Create visual system and UI.</p>
+                        </div>
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">04</span>
+                            <h3>DEVELOP</h3>
+                            <p>Build the website functionality.</p>
+                        </div>
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">05</span>
+                            <h3>TEST</h3>
+                            <p>Check responsive behavior.</p>
+                        </div>
+                        <div class="process-card glass-card" data-tilt>
+                            <span class="process-num">06</span>
+                            <h3>DEPLOY</h3>
+                            <p>Launch and optimize.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title">Get In <span class="gradient-red">Touch</span></h2>
-            
-            <div class="contact-container">
-                <div class="contact-card glass-card">
-                    <div class="contact-grid">
-                        
-                        <!-- Left: Form -->
-                        <div class="contact-form">
+        <!-- 7. Contact Section -->
+        <section class="contact section-padding" id="contact">
+            <div class="container">
+                <div class="section-header text-center fade-in-scroll">
+                    <span class="section-badge">Get In Touch</span>
+                    <h2 class="section-title">Have a project in mind?<br><span class="text-gradient">Let’s build something meaningful.</span></h2>
+                </div>
+                
+                <div class="contact-grid">
+                    <!-- Form -->
+                    <div class="contact-form glass-card fade-in-scroll">
+                        <form id="contact-form-main">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" placeholder="Name">
+                                <input type="text" id="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="Email">
+                                <input type="email" id="email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" rows="4" placeholder="Message"></textarea>
+                                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
                             </div>
-                            <button class="btn btn-white w-100">Send Inquiry</button>
-                        </div>
+                            <button type="button" class="btn btn-primary w-100 btn-glow">Send Inquiry</button>
+                        </form>
+                    </div>
 
-                        <!-- Right: Info -->
-                        <div class="contact-info-panel">
-                            <div class="info-group">
+                    <!-- Info -->
+                    <div class="contact-info-panel fade-in-scroll">
+                        <div class="info-group glass-card">
+                            <div class="info-icon glow-pulse"><i class="fas fa-envelope"></i></div>
+                            <div>
                                 <h4>Email</h4>
-                                <div class="info-item">
-                                    <div class="info-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <p>chinnaprshanth06@gmail.com</p>
-                                </div>
+                                <p>chinnaprshanth06@gmail.com</p>
                             </div>
-
-                            <div class="info-group">
+                        </div>
+                        <div class="info-group glass-card">
+                            <div class="info-icon glow-pulse"><i class="fas fa-phone"></i></div>
+                            <div>
                                 <h4>Phone</h4>
-                                <div class="info-item">
-                                    <div class="info-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <p>+91 9666166967</p>
-                                </div>
+                                <p>+91 9666166967</p>
                             </div>
-
-                            <div class="info-group">
+                        </div>
+                        <div class="info-group glass-card">
+                            <div class="info-icon glow-pulse"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
                                 <h4>Location</h4>
-                                <div class="info-item">
-                                    <div class="info-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <p>India</p>
-                                </div>
-                            </div>
-
-                            <div class="info-group">
-                                <h4>Social Media</h4>
-                                <div class="social-links-vertical">
-                                    <a href="#" class="social-item">
-                                        <div class="info-icon"><i class="fab fa-linkedin-in"></i></div>
-                                        <span>LinkedIn</span>
-                                    </a>
-                                    <a href="#" class="social-item">
-                                        <div class="info-icon"><i class="fab fa-github"></i></div>
-                                        <span>GitHub</span>
-                                    </a>
-                                    <a href="#" class="social-item">
-                                        <div class="info-icon"><i class="fab fa-twitter"></i></div>
-                                        <span>Twitter</span>
-                                    </a>
-                                </div>
+                                <p>India</p>
                             </div>
                         </div>
                         
+                        <div class="social-links">
+                            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Preview Modal -->
-    <div id="preview-modal" class="preview-modal">
-        <div class="preview-modal-content">
-            <button id="preview-close" class="preview-close">&times;</button>
-            <iframe id="preview-iframe" class="preview-iframe" src="" frameborder="0" allowfullscreen></iframe>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo-icon">P</div>
+                <span class="brand-name">Prashanth Web Lab</span>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-copy">
+                &copy; <span id="year"></span> Prashanth. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Case Study / Preview Modal (Dynamically Populated) -->
+    <div id="case-study-modal" class="premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card scrollbar-hidden">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div id="case-study-body">
+                <!-- Injected via JS -->
+            </div>
         </div>
     </div>
 
-    <!-- Resume Modal -->
-    <div id="resume-modal" class="preview-modal">
-        <div class="resume-modal-wrapper" style="position: relative; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; background: transparent; border-radius: 12px; margin: auto;">
-            <button id="resume-close" class="preview-close" style="top: 10px; right: 10px; z-index: 10; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">&times;</button>
-            <!-- Complete Resume Modal Content with Detailed Project Breakdown -->
-            <div class="resume-modal-content" style="background-color: #070913; color: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid rgba(255, 75, 75, 0.3); max-width: 800px; margin: auto; font-family: 'Inter', sans-serif;">
-              
+    <!-- Resume Modal (Preserved exactly as requested) -->
+    <div id="resume-modal" class="premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card scrollbar-hidden" style="max-width: 800px;">
+            <button class="modal-close" id="resume-close"><i class="fas fa-times"></i></button>
+            
+            <div class="resume-body" style="padding: 20px; color: #fff;">
               <!-- Header -->
-              <div style="text-align: center; border-bottom: 2px solid #ff4b4b; padding-bottom: 20px; margin-bottom: 20px;">
-                <h1 style="margin: 0; font-size: 28px; color: #ffffff; letter-spacing: 1px;">M. PRASHANTH REDDY</h1>
-                <p style="margin: 5px 0 0; font-size: 16px; color: #ff4b4b; font-weight: 600;">AI-Assisted Web Designer & Full-Stack Developer</p>
+              <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 20px;">
+                <h1 style="margin: 0; font-size: 28px; letter-spacing: 1px;">M. PRASHANTH REDDY</h1>
+                <p style="margin: 5px 0 0; font-size: 16px; color: var(--cyan); font-weight: 600;">AI-Assisted Web Designer & Full-Stack Developer</p>
                 <p style="margin: 8px 0 0; font-size: 14px; color: #a0aec0;">
                   📧 chinnaprshanth06@gmail.com | 📞 +91 9666166967
                 </p>
@@ -425,176 +417,63 @@
 
               <!-- Professional Summary -->
               <div style="margin-bottom: 25px;">
-                <h3 style="color: #ff4b4b; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px;">PROFESSIONAL SUMMARY</h3>
-                <p style="font-size: 14px; line-height: 1.6; color: #cbd5e0; margin: 0;">
+                <h3 style="color: var(--cyan); margin-bottom: 10px;">PROFESSIONAL SUMMARY</h3>
+                <p style="font-size: 14px; line-height: 1.6; color: #cbd5e0;">
                   Innovative and detail-oriented AI-Assisted Web Designer with expertise in building futuristic, high-end, responsive web applications. Specialized in rapid prototyping, clean UI/UX design, interactive buttons, fluid CSS animations, and full-stack integration, delivering fully optimized websites in record time.
                 </p>
               </div>
 
               <!-- Education & Certifications -->
               <div style="margin-bottom: 25px;">
-                <h3 style="color: #ff4b4b; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px;">EDUCATION & CERTIFICATIONS</h3>
-                <ul style="list-style-type: none; padding: 0; margin: 0; font-size: 14px; color: #cbd5e0; line-height: 1.8;">
+                <h3 style="color: var(--cyan); margin-bottom: 10px;">EDUCATION & CERTIFICATIONS</h3>
+                <ul style="list-style-type: none; padding: 0; font-size: 14px; color: #cbd5e0; line-height: 1.8;">
                   <li style="margin-bottom: 10px;">
                     <strong style="color: #ffffff;">• Professional Certificate in Artificial Intelligence (AI)</strong><br>
                     <span style="color: #a0aec0; font-size: 13px;">Completed specialized training focusing on modern AI tools, machine learning concepts, and practical applications.</span>
                   </li>
                   <li style="margin-bottom: 10px;">
-                    <strong style="color: #ffffff;">• BSc Degree (2018)</strong><br>
-                    <span style="color: #a0aec0; font-size: 13px;">Science, technology, mathematics, and related academic disciplines[cite: 1].</span>
+                    <strong style="color: #ffffff;">• BSc Degree (2018)</strong>
                   </li>
                   <li style="margin-bottom: 10px;">
-                    <strong style="color: #ffffff;">• Intermediate Education (2015)</strong><br>
-                    <span style="color: #a0aec0; font-size: 13px;">Telangana Board of Secondary Education (BSE Telangana)[cite: 1].</span>
+                    <strong style="color: #ffffff;">• Intermediate Education (2015)</strong>
                   </li>
                   <li>
-                    <strong style="color: #ffffff;">• Secondary School Certificate - SSC (2013)</strong><br>
-                    <span style="color: #a0aec0; font-size: 13px;">Secondary School Certificate public examinations[cite: 1].</span>
+                    <strong style="color: #ffffff;">• Secondary School Certificate - SSC (2013)</strong>
                   </li>
                 </ul>
               </div>
 
-              <!-- Key Projects with Detailed Info -->
-              <div style="margin-bottom: 25px;">
-                <h3 style="color: #ff4b4b; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px;">KEY PROJECTS & IMPLEMENTATION</h3>
-                
-                <!-- Project 1 -->
-                <div style="margin-bottom: 15px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
-                  <strong style="color: #ffffff; font-size: 15px;">1. Prashanth AI Portfolio</strong>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>What's inside:</strong> Personal professional showcase featuring modern UI/UX design, dynamic navigation, and live project previews.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Buttons used:</strong> Glowing CTA buttons, interactive navigation tabs, and modal toggle triggers.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Animations:</strong> Smooth CSS fade-ins, glassmorphism hover effects, and fluid background transitions.</p>
-                  <a href="https://prashanth-reddy-2026.netlify.app/" target="_blank" style="color: #ff4b4b; text-decoration: none; font-size: 13px; font-weight: bold;">🔗 View Live Project</a>
-                </div>
-
-                <!-- Project 2 -->
-                <div style="margin-bottom: 15px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
-                  <strong style="color: #ffffff; font-size: 15px;">2. Prashanth Hospital Website</strong>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>What's inside:</strong> Healthcare and medical web application providing seamless patient information and department layouts.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Buttons used:</strong> In-page modal preview triggers, appointment booking buttons, and quick navigation links.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Animations:</strong> Clean card elevation on hover and responsive layout shifts for mobile compatibility.</p>
-                  <a href="https://prashanth-hospital.netlify.app/" target="_blank" style="color: #ff4b4b; text-decoration: none; font-size: 13px; font-weight: bold;">🔗 View Live Project</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div style="margin-bottom: 15px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
-                  <strong style="color: #ffffff; font-size: 15px;">3. SL Self Drive Car Rentals</strong>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>What's inside:</strong> Full-stack car rental booking platform with intuitive user flows and vehicle listings.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Buttons used:</strong> Rental selection buttons, booking confirmation CTAs, and filter toggles.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Animations:</strong> Smooth image zooms on hover and dynamic modal transitions.</p>
-                  <a href="https://slcarrentals.in/" target="_blank" style="color: #ff4b4b; text-decoration: none; font-size: 13px; font-weight: bold;">🔗 View Live Project</a>
-                </div>
-
-                <!-- Project 4 -->
-                <div style="margin-bottom: 15px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
-                  <strong style="color: #ffffff; font-size: 15px;">4. MPR Shopping Mall</strong>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>What's inside:</strong> E-commerce shopping application designed with product showcases and category navigation.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Buttons used:</strong> Add-to-cart buttons, category filters, and checkout triggers.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Animations:</strong> Product card shadow transitions and grid alignment animations.</p>
-                  <a href="https://mpr-shopping-mall.netlify.app/" target="_blank" style="color: #ff4b4b; text-decoration: none; font-size: 13px; font-weight: bold;">🔗 View Live Project</a>
-                </div>
-
-                <!-- Project 5 -->
-                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
-                  <strong style="color: #ffffff; font-size: 15px;">5. Demo Portfolio Live</strong>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>What's inside:</strong> Experimental performance layout showcasing advanced styling and visual components.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Buttons used:</strong> Interactive action triggers and custom styled outline buttons.</p>
-                  <p style="margin: 5px 0; font-size: 13px; color: #cbd5e0;"><strong>Animations:</strong> High-performance keyframe animations and color gradient shifts.</p>
-                  <a href="https://demo-portfolio-live-2026.netlify.app/" target="_blank" style="color: #ff4b4b; text-decoration: none; font-size: 13px; font-weight: bold;">🔗 View Live Project</a>
-                </div>
-
-              </div>
-
               <!-- Skills -->
               <div>
-                <h3 style="color: #ff4b4b; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin-bottom: 10px;">SKILLS & EXPERTISE</h3>
-                <p style="font-size: 14px; color: #cbd5e0; line-height: 1.6; margin: 0;">
+                <h3 style="color: var(--cyan); margin-bottom: 10px;">SKILLS & EXPERTISE</h3>
+                <p style="font-size: 14px; color: #cbd5e0; line-height: 1.6;">
                   <strong>Frontend:</strong> HTML5, CSS3, JavaScript, Responsive Web Design<br>
                   <strong>Backend & Tools:</strong> Node.js, Firebase, Git & GitHub, Netlify<br>
-                  <strong>Workflow & Services:</strong> AI-Assisted Prototyping, Full-Stack Development, Hosting, Automatic Updates, SEO & Performance Optimization
+                  <strong>Workflow:</strong> AI-Assisted Prototyping, Full-Stack Development, Hosting, SEO
                 </p>
+              </div>
+              
+              <div style="text-align: center; margin-top: 30px;">
+                  <a href="#" class="btn btn-primary btn-glow">Download PDF Resume</a>
               </div>
 
             </div>
         </div>
     </div>
 
-    <!-- Skill Modal -->
-    <div id="skill-modal" class="preview-modal">
-        <div class="resume-modal-wrapper" style="position: relative; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; background: transparent; border-radius: 12px; margin: auto;">
-            <button id="skill-close" class="preview-close" style="top: 10px; right: 10px; z-index: 10; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">&times;</button>
-            <div class="resume-modal-content" style="font-family: 'Courier New', Courier, monospace; background-color: #070913; color: #ffffff; padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 75, 75, 0.4); max-height: 80vh; overflow-y: auto; scroll-behavior: smooth;">
-                
-                <!-- 1. HTML -->
-                <div id="skill-html" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 1. HTML (HyperText Markup Language) &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used to create the fundamental structure and content of a web page, including headings, paragraphs, and images.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Acts as the solid base of any website, highly favorable for SEO, and universally supported by all web browsers.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Proper semantic markup and data sanitization to prevent malicious code injection (XSS).</p>
-                </div>
-
-                <!-- 2. CSS -->
-                <div id="skill-css" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 2. CSS (Cascading Style Sheets) &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used to design web pages by styling colors, custom layouts, and smooth visual animations.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Makes the website look extremely attractive, professional, and visually engaging.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Enforces safe styling rules and ensures external stylesheets are loaded securely over trusted hosting.</p>
-                </div>
-
-                <!-- 3. JavaScript -->
-                <div id="skill-js" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 3. JavaScript &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used to build interactive features on the website such as buttons, modal pop-ups, sliders, and dynamic calculations.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Enhances user experience, making the website fast, responsive, and highly dynamic.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Implements client-side validations and secure script handling to avoid DOM-based XSS vulnerabilities.</p>
-                </div>
-
-                <!-- 4. Node.js -->
-                <div id="skill-node" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 4. Node.js &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used for server-side backend logic and managing local server databases.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Delivers fast execution, real-time data handling, and scalable backend architecture.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Protects data through secure environment variables (.env), dependency auditing, and robust server configurations.</p>
-                </div>
-
-                <!-- 5. Firebase -->
-                <div id="skill-firebase" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 5. Firebase &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used for cloud database storage, user authentication, and web hosting.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Provides real-time data synchronization, instant configuration, and relies on secure Google cloud infrastructure.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Enforces strict Firestore security rules, encrypted user data storage, and token-based authentication.</p>
-                </div>
-
-                <!-- 6. Git -->
-                <div id="skill-git" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 6. Git &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used for source code version control and tracking changes over time.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Allows easy tracking of code modifications, quick rollbacks from mistakes, and seamless team collaboration.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Secures repositories with access tokens, private branching workflows, and prevents exposure of sensitive keys.</p>
-                </div>
-
-                <!-- 7. Netlify -->
-                <div id="skill-netlify" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 7. Netlify &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used for rapid web deployment and continuous hosting.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Offers instant global CDN distribution, automatic HTTPS certificates, and seamless GitHub integration.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Ensures automatic SSL/TLS encryption, secure header configurations, and protected build environments.</p>
-                </div>
-
-                <!-- 8. UI/UX Design & Responsive Layouts -->
-                <div id="skill-uiux" class="skill-detail-block" style="display: none;">
-                    <h2 style="color: #ff4b4b; font-size: 20px; margin-bottom: 10px;">&lt; 8. UI/UX Design &amp; Responsive Layouts &gt;</h2>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// What we do & Why we use it:</strong><br>Used to design user-friendly interfaces and ensure web layouts adapt perfectly across mobile, tablet, and desktop screens.</p>
-                    <p style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #ff4b4b;">// Benefits:</strong><br>Ensures excellent user satisfaction, clean visual hierarchy, and multi-device compatibility.</p>
-                    <p style="margin: 0; font-size: 14px;"><strong style="color: #ff4b4b;">// Safety:</strong><br>Compliance with accessible design standards and secure, error-free layout rendering.</p>
-                </div>
-
+    <!-- Live Preview Modal -->
+    <div id="preview-modal" class="premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card" style="padding:0; width:95%; height:95%; max-width:1400px; display:flex; flex-direction:column;">
+            <div style="padding:15px; background:rgba(0,0,0,0.8); border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                <span id="preview-title" style="font-weight:600; color:var(--cyan);">Live Preview</span>
+                <button class="modal-close" style="position:static; width:30px; height:30px;"><i class="fas fa-times"></i></button>
             </div>
+            <iframe id="preview-iframe" style="flex:1; width:100%; border:none; background:#fff;"></iframe>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <!-- TEMPORARY DESIGN GRID OVERLAY: Delete or comment this line when design is finalized -->
-    <script src="grid-overlay.js"></script>
 </body>
 </html>
