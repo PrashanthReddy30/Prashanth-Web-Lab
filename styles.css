@@ -564,37 +564,43 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Skills Grid --- */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 3rem;
 }
 
 .skill-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    padding: 2rem 1rem;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
     text-align: center;
     cursor: pointer;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: var(--transition);
 }
 
 .skill-card i {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .skill-card span {
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-main);
 }
 
 .skill-card:hover {
-    border-color: rgba(67, 97, 238, 0.4);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: rgba(67, 97, 238, 0.6);
+    background: rgba(67, 97, 238, 0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 0 15px rgba(67, 97, 238, 0.2);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Skill Icon Colors */
@@ -770,22 +776,37 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 0; bottom: 0; left: 24px;
     width: 2px;
-    background: rgba(255,255,255,0.05);
+    background: linear-gradient(to bottom, transparent, var(--cyan), var(--electric-blue), transparent);
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 .timeline-item {
     position: relative;
     padding: 1.5rem;
     padding-left: 4rem;
+    transition: var(--transition);
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
 }
 
 .timeline-dot {
     position: absolute;
     top: 2rem; left: 19px;
     width: 12px; height: 12px;
-    background: var(--cyan);
+    background: var(--bg-dark);
+    border: 2px solid var(--cyan);
     border-radius: 50%;
     box-shadow: 0 0 10px var(--cyan);
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--cyan);
+    box-shadow: 0 0 20px var(--cyan), 0 0 40px var(--cyan);
+    transform: scale(1.3);
 }
 
 .timeline-content h3 {
