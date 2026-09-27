@@ -393,9 +393,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- About Section --- */
-.about-visual {
-    mix-blend-mode: screen;
-}
 
 .glass-frame {
     position: relative;
@@ -410,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
 .profile-img {
     width: 100%;
     display: block;
-    filter: brightness(1.1) contrast(1.1);
+    filter: drop-shadow(0 0 15px rgba(0, 245, 212, 0.5)) drop-shadow(0 0 30px rgba(112, 0, 255, 0.3));
     position: relative;
     z-index: 1;
 }
