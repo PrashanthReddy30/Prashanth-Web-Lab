@@ -56,6 +56,55 @@ body.dark-theme {
     pointer-events: none;
 }
 
+/* --- Ambient Cinematic Lighting Orbs --- */
+.ambient-orbs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: float 20s infinite ease-in-out alternate;
+}
+.orb-1 {
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, var(--electric-blue) 0%, transparent 70%);
+    top: -20vh;
+    left: -10vw;
+    animation-delay: 0s;
+}
+.orb-2 {
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--violet) 0%, transparent 70%);
+    bottom: -10vh;
+    right: -10vw;
+    animation-delay: -5s;
+    animation-direction: alternate-reverse;
+}
+.orb-3 {
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, var(--cyan) 0%, transparent 70%);
+    top: 30vh;
+    left: 40vw;
+    animation-delay: -10s;
+    opacity: 0.08;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(5vw, 5vh) scale(1.1); }
+}
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -123,12 +172,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(20, 25, 40, 0.6) 0%, rgba(10, 15, 25, 0.4) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: var(--transition);
 }
 
 /* --- Header / Nav --- */
@@ -477,25 +530,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--cyan);
     margin-bottom: 1.5rem;
     display: inline-block;
+    transition: var(--transition);
+    transform: translateZ(30px);
+    filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.5));
 }
 
 .service-card h3 {
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    transform: translateZ(20px);
 }
 
 .service-card p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    transform: translateZ(10px);
 }
 
 .service-card:hover {
-    border-color: rgba(0, 245, 212, 0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0, 245, 212, 0.1) inset;
+    border-color: var(--electric-blue);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(67, 97, 238, 0.2) inset, 0 0 15px rgba(0, 245, 212, 0.1);
+    transform: translateY(-10px);
+}
+
+.service-card:hover i {
+    color: var(--electric-blue);
+    filter: drop-shadow(0 0 15px rgba(67, 97, 238, 0.8));
 }
 
 /* --- Skills Grid --- */
@@ -745,17 +809,38 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
     color: rgba(255,255,255,0.03);
     line-height: 1;
+    transition: var(--transition);
 }
 
 .process-card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: var(--cyan);
+    transform: translateZ(20px);
+    transition: var(--transition);
 }
 
 .process-card p {
     font-size: 0.9rem;
     color: var(--text-muted);
+    transform: translateZ(10px);
+    transition: var(--transition);
+}
+
+.process-card:hover {
+    border-color: var(--violet);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(123, 44, 191, 0.2) inset, 0 0 15px rgba(123, 44, 191, 0.4);
+    transform: translateY(-5px);
+}
+
+.process-card:hover h3 {
+    color: #fff;
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.process-card:hover .process-num {
+    color: rgba(123, 44, 191, 0.2);
+    transform: translateZ(30px) scale(1.1);
 }
 
 /* --- Contact Section --- */
