@@ -583,30 +583,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Services Grid --- */
 .services-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding-bottom: 2rem; /* space for scrollbar */
 }
-.services-grid::-webkit-scrollbar {
-    height: 8px;
-}
-.services-grid::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05);
-    border-radius: 4px;
-}
-.services-grid::-webkit-scrollbar-thumb {
-    background: var(--cyan);
-    border-radius: 4px;
-}
+
 .service-card {
-    flex: 0 0 calc(33.333% - 1.33rem); /* Show 3 cards per view */
-    scroll-snap-align: start;
     padding: 2rem;
     transition: var(--transition);
+    height: 100%;
 }
 
 .service-card i {
@@ -1230,6 +1216,9 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -1290,6 +1279,9 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
     .what-i-do-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-grid {
         grid-template-columns: 1fr;
     }
 }
