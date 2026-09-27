@@ -361,10 +361,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1.5rem;
     font-size: 0.85rem;
     color: var(--text-muted);
-    position: absolute;
-    top: 560px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 5rem;
     width: 100%;
 }
 
