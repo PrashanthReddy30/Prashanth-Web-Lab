@@ -306,6 +306,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     text-align: center;
     padding-top: 70px;
+    position: relative;
 }
 
 .hero-content {
@@ -358,9 +359,13 @@ h1, h2, h3, h4, h5, h6 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 3rem;
     font-size: 0.85rem;
     color: var(--text-muted);
+    position: absolute;
+    top: 560px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 .trust-labels i {
