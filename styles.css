@@ -1242,6 +1242,12 @@ h1, h2, h3, h4, h5, h6 {
     }
     .section-padding {
         padding: 2rem 0;
+        min-height: auto;
+    }
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 2rem;
     }
     .hero-actions {
         flex-direction: column;
