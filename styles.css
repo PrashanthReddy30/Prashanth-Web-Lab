@@ -988,6 +988,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.contact-link {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    color: var(--cyan);
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
