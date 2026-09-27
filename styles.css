@@ -395,29 +395,21 @@ h1, h2, h3, h4, h5, h6 {
 /* --- About Section --- */
 .glass-frame {
     position: relative;
-    border-radius: 20px;
-    padding: 10px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--glass-border);
+    padding: 0;
+    background: transparent;
+    border: none;
     transform-style: preserve-3d;
 }
 
 .profile-img {
     width: 100%;
-    border-radius: 12px;
     display: block;
     transform: translateZ(20px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 15px rgba(0, 245, 212, 0.5)) drop-shadow(0 0 30px rgba(112, 0, 255, 0.3));
 }
 
 .frame-glow {
-    position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
-    border-radius: 22px;
-    background: linear-gradient(135deg, var(--cyan), transparent, var(--violet));
-    z-index: -1;
-    opacity: 0.5;
-    filter: blur(10px);
+    display: none;
 }
 
 .about-bio {
