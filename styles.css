@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1.5rem;
     font-size: 0.85rem;
     color: var(--text-muted);
-    margin-top: 5rem;
+    margin-top: 0;
     width: 100%;
 }
 
