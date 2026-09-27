@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Apply styling to the container
     Object.assign(gridOverlay.style, {
-        position: 'fixed',
+        position: 'absolute',
         top: '0',
         left: '0',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) + 'px',
         pointerEvents: 'none',
         zIndex: '9999',
         opacity: '0.1',
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Generate vertical ruler (left edge)
-    const windowHeight = window.innerHeight;
+    const windowHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     for (let y = 10; y < windowHeight; y += 10) {
         if (y % 100 === 0) {
             const marker = document.createElement('div');
