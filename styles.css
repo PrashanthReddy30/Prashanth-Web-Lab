@@ -677,10 +677,34 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.project-card {
+    padding: 1rem;
+}
+
+.mockup-header {
+    display: flex;
+    gap: 6px;
+    padding: 0.5rem 0.8rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mockup-header .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.mockup-header .close { background: #ff5f56; }
+.mockup-header .min { background: #ffbd2e; }
+.mockup-header .max { background: #27c93f; }
+
 .project-img-wrapper {
     width: 100%;
     height: 220px;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     overflow: hidden;
     position: relative;
     margin-bottom: 1.5rem;
@@ -700,8 +724,10 @@ h1, h2, h3, h4, h5, h6 {
 .project-img-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 15, 29, 0.7);
+    background: rgba(10, 15, 29, 0.85);
+    backdrop-filter: blur(4px);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;

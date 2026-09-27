@@ -202,10 +202,16 @@ function renderProjects(filterCategory) {
         card.setAttribute('data-id', project.id);
         
         card.innerHTML = `
+            <div class="mockup-header">
+                <span class="dot close"></span>
+                <span class="dot min"></span>
+                <span class="dot max"></span>
+            </div>
             <div class="project-img-wrapper">
                 <img src="${project.image}" alt="${project.title}" loading="lazy">
                 <div class="project-img-overlay">
-                    <button class="btn btn-primary" onclick="openCaseStudy('${project.id}', event)">VIEW CASE STUDY</button>
+                    <button class="btn btn-primary btn-glow" onclick="openCaseStudy('${project.id}', event)">EXPLORE PROJECT</button>
+                    <a href="${project.liveUrl}" target="_blank" class="btn btn-outline" style="margin-top:10px;">LIVE DEMO</a>
                 </div>
             </div>
             <div class="project-info">
